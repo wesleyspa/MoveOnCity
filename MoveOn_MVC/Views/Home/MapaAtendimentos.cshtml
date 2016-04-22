@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta chat="utf-8"
+    <meta name="viewport" content="width=device-width" />
+    <title>MoveOn - Mapa de Atendimentos</title>
+
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
+</head>
+<body>
+    @Html.Partial("_MenuApplication")
+
+    <div id="google-mapa" style="height: 500px; width: 700px">
+    </div>
+
+    <!-- Maps API Javascript -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALY-9Js70qi543YtbtKwl8WUO8mgyTsqU&amp;sensor=false"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MapaAtend.js")"></script>
+</body>
+</html>
