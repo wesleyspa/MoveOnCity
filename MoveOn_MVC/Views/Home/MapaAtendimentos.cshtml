@@ -2,7 +2,7 @@
 
 <html lang="pt-br">
 <head>
-    <meta chat="utf-8"
+    <meta chat="utf-8"/>
     <meta name="viewport" content="width=device-width" />
     <title>MoveOn - Mapa de Atendimentos</title>
 
@@ -12,12 +12,13 @@
 <body>
     @Html.Partial("_MenuApplication")
 
-    <div id="google-mapa" style="height: 500px; width: 700px">
+    <div id="google-mapa-todo">
     </div>
 
     <!-- Maps API Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALY-9Js70qi543YtbtKwl8WUO8mgyTsqU&amp;sensor=false"></script>
 
-    <script type="text/javascript" src="@Url.Content("~/Scripts/MapaAtend.js")"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MapaTodosAtend.js")"></script>
 </body>
 </html>
