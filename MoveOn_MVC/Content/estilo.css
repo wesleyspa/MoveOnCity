@@ -1,8 +1,12 @@
-﻿.bloco-atendimento {
+﻿table{
+    width: 100%;    
+}
+
+.bloco-atendimento {
     width: 300px;
     min-height: 50px;
-    max-height: 500px;
-    margin-left: 200px;
+    max-height: 500px;    
+    margin: 0 auto;
 }
 
 .atendimento-cabecalho {
@@ -16,9 +20,9 @@
     box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
 
-    .atendimento-cabecalho > span {
-        padding-left: 5px;
-    }
+.atendimento-cabecalho > span {
+    padding-left: 5px;
+}
 
 .atendimento-corpo {
     width: 100%;
@@ -37,11 +41,11 @@
 
 #google-mapa {
     width: 100%;
-    height: 300px;    
+    height: 300px;
 }
 
 #google-mapa-todo {
     margin-top: -20px;
     width: 100%;
-    height: 800px;    
+    height: 800px;
 }

@@ -12,53 +12,54 @@
 <body>
     @Html.Partial("_MenuApplication")
 
-    <table>
-        <tr>
-            <td>
-                <div class="bloco-atendimento">
-                    <div class="atendimento-cabecalho">
-                        <span>Teste Cab.</span>
-                        <div class="atendimento-corpo urgente">
-                            <span>Teste CORPO DO ATENDIMENTO</span>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="bloco-atendimento">
-
-                    <div class="atendimento-cabecalho">
-                        <span>Teste Cab.</span>
-                        <div class="atendimento-corpo">
-                            <span>Teste CORPO DO ATENDIMENTO OASKOPASOKPAOKPAKOPKOSPA</span>
-                            <br />
-                            <div id="google-mapa">
-                                <span>mapa</span>
+    <div>
+        <table align="center">
+            <tr>
+                <td>
+                    <div class="bloco-atendimento">
+                        <div class="atendimento-cabecalho">
+                            <span>Teste Cab.</span>
+                            <div class="atendimento-corpo urgente">
+                                <span>Teste CORPO DO ATENDIMENTO</span>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
                             </div>
                         </div>
                     </div>
-                </div>
-            </td>
-            <td>
-                <div class="bloco-atendimento">
+                </td>
+                <td>
+                    <div class="bloco-atendimento">
 
-                    <div class="atendimento-cabecalho">
-                        <span>Teste Cab.</span>
-                        <div class="atendimento-corpo urgente">
-                            <span>Teste CORPO DO ATENDIMENTO</span>
-                            <br />
+                        <div class="atendimento-cabecalho">
+                            <span>Teste Cab.</span>
+                            <div class="atendimento-corpo">
+                                <span>Teste CORPO DO ATENDIMENTO OASKOPASOKPAOKPAKOPKOSPA</span>
+                                <br />
+                                <div id="google-mapa">
+                                    <span>mapa</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-    
+                </td>
+                <td>
+                    <div class="bloco-atendimento">
+
+                        <div class="atendimento-cabecalho">
+                            <span>Teste Cab.</span>
+                            <div class="atendimento-corpo urgente">
+                                <span>Teste CORPO DO ATENDIMENTO</span>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>    
     <!-- Maps API Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALY-9Js70qi543YtbtKwl8WUO8mgyTsqU&amp;sensor=false"></script>    
     <script type="text/javascript" src="@Url.Content("~/Scripts/MapaLocation.js")"></script>

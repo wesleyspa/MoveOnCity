@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AtendimentoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -140,6 +141,7 @@
     <Content Include="Views\Home\NovoAtendimento.cshtml" />
     <Content Include="Views\Home\MapaAtendimentos.cshtml" />
     <Content Include="Scripts\AtendimentosAbertos.json" />
+    <Content Include="Views\Atendimento\NovoAtendimento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
