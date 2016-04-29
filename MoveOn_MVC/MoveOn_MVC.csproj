@@ -117,6 +117,7 @@
     <Compile Include="Controllers\AtendimentoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ServicoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,6 +143,7 @@
     <Content Include="Views\Home\MapaAtendimentos.cshtml" />
     <Content Include="Scripts\AtendimentosAbertos.json" />
     <Content Include="Views\Atendimento\NovoAtendimento.cshtml" />
+    <Content Include="Views\Servico\ListaServicos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
