@@ -1,8 +1,8 @@
-﻿namespace MoveOn_MVC.Models
+﻿namespace MoveOn.Domain
 {
     public class Servico
     {
-        public int ServicoID { get; set; }
+        public int ServicoId { get; set; }
         public string Descricao { get; set; }        
         public string InfoAdicional { get; set; }
     }

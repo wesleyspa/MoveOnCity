@@ -1,4 +1,4 @@
-﻿namespace MoveOn_MVC.Models
+﻿namespace MoveOn.Domain
 {
     public class Veiculo
     {
@@ -10,9 +10,10 @@
         public string Cor { get; set; }
         public string Chassi { get; set; }
         public int Passageiros { get; set; }
+        public int Portas { get; set; }
 
         public int ClienteId { get; set; }
-        public virtual Cliente cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
     }
 }

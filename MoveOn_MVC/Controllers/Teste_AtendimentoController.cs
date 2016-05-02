@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MoveOn_MVC.Controllers
 {
-    public class AtendimentoController : Controller
+    public class Teste_AtendimentoController : Controller
     {
         // GET: Atendimento
         public ActionResult NovoAtendimento()

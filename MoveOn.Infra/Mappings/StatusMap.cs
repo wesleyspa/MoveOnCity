@@ -3,12 +3,12 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace MoveOn.Infra.Mappings
 {
-    public class ServicoMap : EntityTypeConfiguration<Servico>
+    public class StatusMap : EntityTypeConfiguration<Status>
     {
-        public ServicoMap()
+        public StatusMap()
         {
-            ToTable("Servico");
-            HasKey(a => a.ServicoId);
+            ToTable("Status");
+            HasKey(a => a.StatusId);
 
             Property(a => a.Descricao).IsRequired().HasMaxLength(30);            
         }

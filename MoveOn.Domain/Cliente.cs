@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MoveOn_MVC.Models
+namespace MoveOn.Domain
 {
     public class Cliente : IPessoa
     {
@@ -13,20 +13,21 @@ namespace MoveOn_MVC.Models
         public string EstadoCivil { get; set; }
         public string Email { get; set; }
 
-        public int contratoId { get; set; }
-        public virtual Contrato contrato { get; set; }
+        public int ContratoId { get; set; }
+        public virtual Contrato Contrato { get; set; }
 
-        //Collection de Endereço
-        public virtual ICollection<Endereco> enderecos { get; set; }
-        //Collection de Veiculo
-        public virtual ICollection<Veiculo> veiculos { get; set; }
+        public int EnderecoId { get; set; }
+        public virtual ICollection<Endereco> Endereco { get; set; }
 
+        public int VeiculoId { get; set; }
+        public virtual ICollection<Veiculo> Veiculo { get; set; }
+
+        public int ContatoId { get; set; }
+        public virtual ICollection<Contato> Contato { get; set; }
 
         public override string ToString()
         {
             return this.Nome;
         }
     }
-
-    
 }

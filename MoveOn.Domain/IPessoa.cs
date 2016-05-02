@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoveOn_MVC.Models
+namespace MoveOn.Domain
 {
     public interface IPessoa
     {        

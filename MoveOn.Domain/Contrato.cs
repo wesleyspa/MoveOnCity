@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MoveOn_MVC.Models
+namespace MoveOn.Domain
 {
     public class Contrato
     {
-        public int ContratoID { get; set; }
-
-        public int ClienteId { get; set; }
-        public virtual Cliente cliente { get; set; }
+        public int ContratoId { get; set; }
 
         public DateTime VigenciaInicial { get; set; }
         public DateTime VigenciaFinal { get; set; }
 
-        //Collection de servico
-        public virtual ICollection<Servico> servicos { get; set; }
+        public int ClienteId { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
-
+        public int ServicoId { get; set; }
+        public virtual ICollection<Servico> Servico { get; set; }
     }
 }

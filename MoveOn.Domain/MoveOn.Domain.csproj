@@ -50,6 +50,7 @@
     <Compile Include="IPessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servico.cs" />
+    <Compile Include="Status.cs" />
     <Compile Include="Veiculo.cs" />
   </ItemGroup>
   <ItemGroup>

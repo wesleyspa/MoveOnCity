@@ -1,4 +1,4 @@
-﻿using MoveOn_MVC.Models;
+﻿using MoveOn.Domain;
 using System.Data.Entity.ModelConfiguration;
 
 namespace MoveOn.Infra.Mappings
@@ -8,14 +8,18 @@ namespace MoveOn.Infra.Mappings
         public ClienteMap()
         {
             ToTable("Cliente");
-            HasKey(a => a.ClienteId);
+            HasKey(x => x.ClienteId);
 
-            Property(a => a.ClienteId).IsRequired();
-            Property(a => a.Nome).IsRequired();
-            Property(a => a.CNH).IsRequired();
-            Property(a => a.).IsRequired();
+            Property(x => x.ClienteId).IsRequired();
+            Property(x => x.Nome).IsRequired().HasMaxLength(100);
+            Property(x => x.CNH).IsRequired();
+            Property(x => x.EstadoCivil).IsRequired();
+            Property(x => x.Email).IsRequired();
 
-
-    }
+            HasRequired(x => x.Endereco);
+            HasRequired(x => x.Contrato);
+            HasRequired(x => x.Veiculo);
+            HasRequired(x => x.Contato);
+        }
     }
 }

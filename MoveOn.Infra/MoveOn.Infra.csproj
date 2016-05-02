@@ -50,7 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext\MoveOnDataContext.cs" />
+    <Compile Include="Mappings\VeiculoMap.cs" />
+    <Compile Include="Mappings\FuncionarioMap.cs" />
     <Compile Include="Mappings\ClienteMap.cs" />
+    <Compile Include="Mappings\EnderecoMap.cs" />
+    <Compile Include="Mappings\ContratoMap.cs" />
+    <Compile Include="Mappings\ContatoMap.cs" />
+    <Compile Include="Mappings\StatusMap.cs" />
     <Compile Include="Mappings\ServicoMap.cs" />
     <Compile Include="Mappings\AtendimentoMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

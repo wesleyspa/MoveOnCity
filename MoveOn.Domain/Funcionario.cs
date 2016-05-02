@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace MoveOn_MVC.Models
+namespace MoveOn.Domain
 {
     public class Funcionario : IPessoa
     {
-        public int FuncionarioID { get; set; }
+        public int FuncionarioId { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public string CPF_CNPJ { get; set; }
@@ -14,7 +15,10 @@ namespace MoveOn_MVC.Models
         public DateTime DataContrato { get; set; }
 
         public int EnderecoId { get; set; }
-        public virtual Endereco endereco { get; set; }
+        public virtual Endereco Endereco { get; set; }
+
+        public int ContatoId { get; set; }
+        public virtual ICollection<Contato> Contato { get; set; }
 
         public override string ToString()
         {
