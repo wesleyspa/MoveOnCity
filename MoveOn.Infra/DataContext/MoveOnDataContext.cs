@@ -9,7 +9,7 @@ namespace MoveOn.Infra.DataContext
     {
         public MoveOnDataContext() : base("MoveOnCity_Context")
         {
-            Database.SetInitializer<MoveOnDataContext>(new MoveOnDataContextInitializer());
+            Database.SetInitializer(new MoveOnDataContextInitializer());
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
 
