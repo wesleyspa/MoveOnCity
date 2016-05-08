@@ -128,7 +128,16 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MoveOn.Domain\MoveOn.Domain.csproj">
+      <Project>{c2d1656f-1e98-4353-af57-400406c272bf}</Project>
+      <Name>MoveOn.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoveOn.Infra\MoveOn.Infra.csproj">
+      <Project>{d6dfd66e-07e4-42b6-90c9-aa1a9571c87f}</Project>
+      <Name>MoveOn.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -149,16 +158,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MoveOn.Domain\MoveOn.Domain.csproj">
-      <Project>{c2d1656f-1e98-4353-af57-400406c272bf}</Project>
-      <Name>MoveOn.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MoveOn.Infra\MoveOn.Infra.csproj">
-      <Project>{d6dfd66e-07e4-42b6-90c9-aa1a9571c87f}</Project>
-      <Name>MoveOn.Infra</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

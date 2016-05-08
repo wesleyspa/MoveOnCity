@@ -25,7 +25,8 @@ namespace MoveOn.Servico.Controllers
         }
 
         [Route("atendimentos/{clienteId}")]
-        public HttpResponseMessage RetornarAtendimentosPorCliente(int? clienteId)
+        //public HttpResponseMessage RetornarAtendimentosPorCliente(int? clienteId)
+        public HttpResponseMessage RetornarAtendimentosPorCliente()
         {
             var result = db.Atendimentos.Include("Localizacao").Include("Servico").Include("Responsavel").Include("Veiculo").Include("Status").Where(x => x.ClienteId == clienteId).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, result);

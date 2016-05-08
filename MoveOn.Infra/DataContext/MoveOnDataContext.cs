@@ -12,7 +12,6 @@ namespace MoveOn.Infra.DataContext
             Database.SetInitializer(new MoveOnDataContextInitializer());
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
-
         }
 
         public DbSet<Atendimento> Atendimentos { get; set; }     
@@ -132,6 +131,7 @@ namespace MoveOn.Infra.DataContext
 
 
             context.SaveChanges();
+            base.Seed(context);
         }
     }
 }
