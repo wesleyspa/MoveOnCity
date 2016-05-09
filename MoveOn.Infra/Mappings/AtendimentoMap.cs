@@ -8,12 +8,15 @@ namespace MoveOn.Infra.Mappings
         public AtendimentoMap()
         {
             ToTable("Atendimento");
-            HasKey(x => x.AtendimentoId);
+            HasKey(x => x.Id);
+            
+            Property(x => x.MomConclusao).IsOptional();
+            Property(x => x.MomInicio).IsOptional();
 
-            HasRequired(x => x.Cliente);
-            HasRequired(x => x.Veiculo);
-            HasRequired(x => x.Localizacao);
-            HasRequired(x => x.Servico);
+            //HasRequired(x => x.Cliente);
+            //HasRequired(x => x.Veiculo);
+            //HasRequired(x => x.Localizacao);
+            //HasRequired(x => x.Servico);
         }
     }
 }

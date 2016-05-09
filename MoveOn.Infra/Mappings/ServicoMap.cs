@@ -8,7 +8,7 @@ namespace MoveOn.Infra.Mappings
         public ServicoMap()
         {
             ToTable("Servico");
-            HasKey(a => a.ServicoId);
+            HasKey(a => a.Id);
 
             Property(a => a.Descricao).IsRequired().HasMaxLength(30);            
         }

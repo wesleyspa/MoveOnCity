@@ -8,7 +8,7 @@ namespace MoveOn.Infra.Mappings
         public VeiculoMap()
         {
             ToTable("Veiculo");
-            HasKey(x => x.VeiculoID);
+            HasKey(x => x.Id);
 
             Property(x => x.Marca).IsRequired().HasMaxLength(30);
             Property(x => x.Modelo).IsRequired().HasMaxLength(100);

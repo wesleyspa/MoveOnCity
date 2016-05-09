@@ -9,7 +9,7 @@ namespace MoveOn.Infra.DataContext
     {
         public MoveOnDataContext() : base("MoveOnCity_Context")
         {
-            Database.SetInitializer(new MoveOnDataContextInitializer());
+            Database.SetInitializer<MoveOnDataContext>(new MoveOnDataContextInitializer());
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
         }
@@ -33,8 +33,7 @@ namespace MoveOn.Infra.DataContext
             modelBuilder.Configurations.Add(new ContatoMap());
             modelBuilder.Configurations.Add(new ContratoMap());
             modelBuilder.Configurations.Add(new EnderecoMap());
-            modelBuilder.Configurations.Add(new FuncionarioMap());
-            modelBuilder.Configurations.Add(new ServicoMap());
+            modelBuilder.Configurations.Add(new FuncionarioMap());            
             modelBuilder.Configurations.Add(new StatusMap());
             modelBuilder.Configurations.Add(new VeiculoMap());
 
@@ -47,11 +46,11 @@ namespace MoveOn.Infra.DataContext
         protected override void Seed(MoveOnDataContext context)
         {
             //-- Novos Clientes
-            context.Clientes.Add(new Cliente { Nome = "José Bonifacio da Silva", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "JoseBone@gmail.com", ContratoId = 1, VeiculoId = 1, ContatoId = 1 });
-            context.Clientes.Add(new Cliente { Nome = "João Cleber Ferreira", DataNascimento = DateTime.Now, CPF_CNPJ = "22222222222", CNH = "123456789", EstadoCivil = "Solteiro", Email = "Joao.C@gmail.com", ContratoId = 2, VeiculoId = 2, ContatoId = 2 });
-            context.Clientes.Add(new Cliente { Nome = "Maria Joaquina", DataNascimento = DateTime.Now, CPF_CNPJ = "33333333333", CNH = "123456789", EstadoCivil = "Viúva", Email = "MariaB@gmail.com", ContratoId = 3, VeiculoId = 3, ContatoId = 3 });
-            context.Clientes.Add(new Cliente { Nome = "Berenicie Joana", DataNascimento = DateTime.Now, CPF_CNPJ = "44444444444", CNH = "123456789", EstadoCivil = "Solteiro", Email = "JoaquinaT@gmail.com", ContratoId = 4, VeiculoId = 4, ContatoId = 4 });
-            context.Clientes.Add(new Cliente { Nome = "Claudete Vazques", DataNascimento = DateTime.Now, CPF_CNPJ = "55555555555", CNH = "123456789", EstadoCivil = "Divorciada", Email = "Claudete@gmail.com", ContratoId = 5, VeiculoId = 5, ContatoId = 5 });
+            context.Clientes.Add(new Cliente { Nome = "José Bonifacio da Silva", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "JoseBone@gmail.com", ContratoId = 1});
+            context.Clientes.Add(new Cliente { Nome = "João Cleber Ferreira", DataNascimento = DateTime.Now, CPF_CNPJ = "22222222222", CNH = "123456789", EstadoCivil = "Solteiro", Email = "Joao.C@gmail.com", ContratoId = 2});
+            context.Clientes.Add(new Cliente { Nome = "Maria Joaquina", DataNascimento = DateTime.Now, CPF_CNPJ = "33333333333", CNH = "123456789", EstadoCivil = "Viúva", Email = "MariaB@gmail.com", ContratoId = 3});
+            context.Clientes.Add(new Cliente { Nome = "Berenicie Joana", DataNascimento = DateTime.Now, CPF_CNPJ = "44444444444", CNH = "123456789", EstadoCivil = "Solteiro", Email = "JoaquinaT@gmail.com", ContratoId = 4});
+            context.Clientes.Add(new Cliente { Nome = "Claudete Vazques", DataNascimento = DateTime.Now, CPF_CNPJ = "55555555555", CNH = "123456789", EstadoCivil = "Divorciada", Email = "Claudete@gmail.com", ContratoId = 5});
 
             //-- Novos Contatos
             context.Contatos.Add(new Contato { DDI = "55", DDD = "11", Numero = 943543122, Tipo = "Celular", Info = "Somente ligar em horário comercial", ClienteId = 1 });
@@ -66,25 +65,25 @@ namespace MoveOn.Infra.DataContext
             context.Contatos.Add(new Contato { DDI = "55", DDD = "16", Numero = 23432111, Tipo = "Residencial", Info = "Somente ligar aos fim de semanas", ClienteId = 10 });
 
             //-- Novos Contratos
-            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ClienteId = 1, ServicoId = 1 });
-            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ClienteId = 2, ServicoId = 2 });
-            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ClienteId = 3, ServicoId = 3 });
-            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ClienteId = 4, ServicoId = 4 });
-            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ClienteId = 5, ServicoId = 5 });
-
+            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ServicoId = 1 });
+            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ServicoId = 2 });
+            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ServicoId = 3 });
+            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ServicoId = 4 });
+            context.Contratos.Add(new Contrato { VigenciaInicial = DateTime.Now, ServicoId = 5 });
+                                                                                              
             //-- Novos Enderecos
-            context.Enderecos.Add(new Endereco { Logradouro = "Rua", _Endereco = "Maria da Penha", Numero = "321", CEP = "03232567", Cidade = "São Paulo", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322, ClienteId = 1 });
-            context.Enderecos.Add(new Endereco { Logradouro = "Str.", _Endereco = "João Carlos", Numero = "23", CEP = "0398765", Cidade = "Osasco", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322, ClienteId = 2 });
-            context.Enderecos.Add(new Endereco { Logradouro = "Avenida", _Endereco = "Boa Vista", Numero = "11", CEP = "2343123", Cidade = "São Paulo", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322, ClienteId = 3 });
-            context.Enderecos.Add(new Endereco { Logradouro = "Rua", _Endereco = "XV Novembro", Numero = "93", CEP = "6543456", Cidade = "Taboão da Serra", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322, ClienteId = 4 });
-            context.Enderecos.Add(new Endereco { Logradouro = "Avenida", _Endereco = "Paulista", Numero = "32", CEP = "9876543", Cidade = "São Paulo", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322, ClienteId = 5 });
+            context.Enderecos.Add(new Endereco { Logradouro = "Rua", _Endereco = "Maria da Penha", Numero = "321", CEP = "03232567", Cidade = "São Paulo", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322});
+            context.Enderecos.Add(new Endereco { Logradouro = "Str.", _Endereco = "João Carlos", Numero = "23", CEP = "0398765", Cidade = "Osasco", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322});
+            context.Enderecos.Add(new Endereco { Logradouro = "Avenida", _Endereco = "Boa Vista", Numero = "11", CEP = "2343123", Cidade = "São Paulo", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322});
+            context.Enderecos.Add(new Endereco { Logradouro = "Rua", _Endereco = "XV Novembro", Numero = "93", CEP = "6543456", Cidade = "Taboão da Serra", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322});
+            context.Enderecos.Add(new Endereco { Logradouro = "Avenida", _Endereco = "Paulista", Numero = "32", CEP = "9876543", Cidade = "São Paulo", Estado = "SP", Pais = "Brasil", CoordenadaX = 12345, CoordenadaY = 42322});
 
             //-- Novos Funcionarios
-            context.Funcionarios.Add(new Funcionario { Nome = "Mauricio Augusto Souza", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MauricioA@gmail.com", ContatoId = 6 });
-            context.Funcionarios.Add(new Funcionario { Nome = "Valéria Silva", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteira", Email = "ValeriaS@gmail.com", ContatoId = 7 });
-            context.Funcionarios.Add(new Funcionario { Nome = "Diego Alves", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "DiegoA@gmail.com", ContatoId = 8 });
-            context.Funcionarios.Add(new Funcionario { Nome = "Rafael de Castro", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteiro", Email = "RafaelC@gmail.com", ContatoId = 9 });
-            context.Funcionarios.Add(new Funcionario { Nome = "Murilo Maciel", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MuriloM@gmail.com", ContatoId = 10 });
+            context.Funcionarios.Add(new Funcionario { Nome = "Mauricio Augusto Souza", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MauricioA@gmail.com"});
+            context.Funcionarios.Add(new Funcionario { Nome = "Valéria Silva", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteira", Email = "ValeriaS@gmail.com"});
+            context.Funcionarios.Add(new Funcionario { Nome = "Diego Alves", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "DiegoA@gmail.com"});
+            context.Funcionarios.Add(new Funcionario { Nome = "Rafael de Castro", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteiro", Email = "RafaelC@gmail.com"});
+            context.Funcionarios.Add(new Funcionario { Nome = "Murilo Maciel", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MuriloM@gmail.com" });
 
             //-- Novos Serviços
             context.Servicos.Add(new Servico { Descricao = "Troca de Pneu", InfoAdicional = "Cliente deve possúir o substituto" });
@@ -128,7 +127,6 @@ namespace MoveOn.Infra.DataContext
             context.Atendimentos.Add(new Atendimento { ClienteId = 3, VeiculoId = 3, EnderecoId = 3, ServicoId = 3, StatusId = 3, MomAbertura = DateTime.Now, MomInicio = DateTime.Now, MomConclusao = DateTime.Now, ResponsavelId = 1, VeiculoIdResp = 6 });
             context.Atendimentos.Add(new Atendimento { ClienteId = 4, VeiculoId = 4, EnderecoId = 4, ServicoId = 1, StatusId = 1, MomAbertura = DateTime.Now, MomInicio = DateTime.Now, MomConclusao = DateTime.Now, ResponsavelId = 2, VeiculoIdResp = 7 });
             context.Atendimentos.Add(new Atendimento { ClienteId = 5, VeiculoId = 5, EnderecoId = 5, ServicoId = 2, StatusId = 2, MomAbertura = DateTime.Now, MomInicio = DateTime.Now, MomConclusao = DateTime.Now, ResponsavelId = 1, VeiculoIdResp = 6 });
-
 
             context.SaveChanges();
             base.Seed(context);

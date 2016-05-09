@@ -8,7 +8,7 @@ namespace MoveOn.Infra.Mappings
         public StatusMap()
         {
             ToTable("Status");
-            HasKey(a => a.StatusId);
+            HasKey(a => a.Id);
 
             Property(a => a.Descricao).IsRequired().HasMaxLength(30);            
         }

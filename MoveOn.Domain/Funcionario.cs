@@ -5,7 +5,8 @@ namespace MoveOn.Domain
 {
     public class Funcionario : IPessoa
     {
-        public int FuncionarioId { get; set; }
+        public int Id { get; set; }
+
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public string CPF_CNPJ { get; set; }
@@ -15,7 +16,7 @@ namespace MoveOn.Domain
         public DateTime DataContrato { get; set; }
 
         public int EnderecoId { get; set; }
-        public virtual Endereco Endereco { get; set; }
+        public virtual ICollection<Endereco> Enderecos { get; set; }
 
         public int ContatoId { get; set; }
         public virtual ICollection<Contato> Contato { get; set; }

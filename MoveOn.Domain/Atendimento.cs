@@ -4,7 +4,12 @@ namespace MoveOn.Domain
 {
     public class Atendimento
     {
-        public int AtendimentoId{ get; set; }
+        public Atendimento()
+        {
+            this.MomAbertura = DateTime.Now;
+        }
+
+        public int Id{ get; set; }
 
         public int ClienteId { get; set; }
         public virtual Cliente Cliente { get; set; }

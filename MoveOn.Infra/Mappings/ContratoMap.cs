@@ -8,9 +8,7 @@ namespace MoveOn.Infra.Mappings
         public ContratoMap()
         {
             ToTable("Contrato");
-            HasKey(x => x.ContratoId);
-
-            HasRequired(x => x.Cliente);
+            HasKey(x => x.Id);            
         }
     }
 }
