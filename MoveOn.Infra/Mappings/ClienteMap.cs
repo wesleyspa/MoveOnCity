@@ -16,7 +16,9 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.EstadoCivil).IsRequired();
             Property(x => x.Email).IsRequired();
                         
-            HasRequired(x => x.Contrato);            
+            HasRequired(x => x.Contrato);
+            //HasRequired(x => x.Endereco);
+            HasMany(x => x.Contato);
         }
     }
 }

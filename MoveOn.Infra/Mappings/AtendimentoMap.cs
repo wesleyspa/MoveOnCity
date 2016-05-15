@@ -12,11 +12,15 @@ namespace MoveOn.Infra.Mappings
             
             Property(x => x.MomConclusao).IsOptional();
             Property(x => x.MomInicio).IsOptional();
+            Property(x => x.InfoConclusao).IsOptional().HasMaxLength(500);
+            Property(x => x.FuncionarioId).IsOptional();
 
-            //HasRequired(x => x.Cliente);
-            //HasRequired(x => x.Veiculo);
-            //HasRequired(x => x.Localizacao);
-            //HasRequired(x => x.Servico);
+            HasRequired(x => x.Cliente);
+            HasRequired(x => x.Veiculo);
+            HasRequired(x => x.Localizacao);
+            HasRequired(x => x.Servico);
+            HasMany(x => x.Contatos);
+            HasOptional(x => x.Funcionario);
         }
     }
 }

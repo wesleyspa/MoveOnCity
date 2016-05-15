@@ -15,11 +15,11 @@ namespace MoveOn.Domain
         public string Email { get; set; }
         public DateTime DataContrato { get; set; }
 
-        public int EnderecoId { get; set; }
-        public virtual ICollection<Endereco> Enderecos { get; set; }
+        //public int EnderecoId { get; set; }
+        //public virtual ICollection<Endereco> Enderecos { get; set; }
 
-        public int ContatoId { get; set; }
-        public virtual ICollection<Contato> Contato { get; set; }
+        //public int ContatoId { get; set; }
+        //public virtual ICollection<Contato> Contato { get; set; }
 
         public override string ToString()
         {

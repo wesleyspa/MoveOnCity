@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MoveOn.Domain
 {
@@ -10,6 +11,14 @@ namespace MoveOn.Domain
         }
 
         public int Id{ get; set; }
+
+        public DateTime MomAbertura { get; set; }
+        public DateTime? MomInicio { get; set; }
+        public DateTime? MomConclusao { get; set; }
+        public string InfoConclusao { get; set; }
+
+        public int ContatoId { get; set; }
+        public virtual ICollection<Contato> Contatos { get; set; }
 
         public int ClienteId { get; set; }
         public virtual Cliente Cliente { get; set; }
@@ -26,17 +35,7 @@ namespace MoveOn.Domain
         public int StatusId { get; set; }
         public Status Status { get; set; }
 
-        public DateTime MomAbertura { get; set; }
-        public DateTime MomInicio { get; set; }
-        public DateTime MomConclusao { get; set; }
-
-        public string InfoConclusao { get; set; }
-
-        public int ResponsavelId { get; set; }
-        public virtual Funcionario Responsavel { get; set; }
-
-        public int VeiculoIdResp { get; set; }
-        public Veiculo VeiculoResp { get; set; }
-
+        public int? FuncionarioId { get; set; }
+        public virtual Funcionario Funcionario { get; set; }
     }
 }

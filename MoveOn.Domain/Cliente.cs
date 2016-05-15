@@ -17,8 +17,11 @@ namespace MoveOn.Domain
         public int ContratoId { get; set; }
         public virtual Contrato Contrato { get; set; }
 
-        public int EnderecoId { get; set; }
-        public virtual ICollection<Endereco> Enderecos { get; set; }
+        //public int EnderecoId { get; set; }
+        //public virtual Endereco Endereco { get; set; }
+
+        public int ContatoId { get; set; }
+        public virtual ICollection<Contato> Contato { get; set; }
 
         public int VeiculoId { get; set; }
         public virtual ICollection<Veiculo> Veiculos { get; set; }

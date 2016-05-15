@@ -17,6 +17,7 @@ namespace MoveOn.Servico
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             settings.Formatting = Formatting.Indented;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
