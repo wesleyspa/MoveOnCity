@@ -10,7 +10,6 @@ namespace MoveOn.Domain
         public DateTime VigenciaInicial { get; set; }
         public DateTime VigenciaFinal { get; set; }
 
-        //public int ServicoId { get; set; }
-        //public virtual ICollection<Servico> Servico { get; set; }
+        public virtual ICollection<Servico> Servico { get; set; }
     }
 }

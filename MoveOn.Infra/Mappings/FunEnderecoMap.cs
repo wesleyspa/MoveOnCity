@@ -3,11 +3,11 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace MoveOn.Infra.Mappings
 {
-    public class EnderecoMap : EntityTypeConfiguration<Endereco>
+    public class FunEnderecoMap : EntityTypeConfiguration<FunEndereco>
     {
-        public EnderecoMap()
+        public FunEnderecoMap()
         {
-            ToTable("Endereco");
+            ToTable("FunEndereco");
             HasKey(x => x.Id);
 
             Property(x => x.Logradouro).IsRequired().HasMaxLength(10);
@@ -18,7 +18,7 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.CEP).IsRequired().HasMaxLength(8);
             Property(x => x.Cidade).IsRequired().HasMaxLength(50);
             Property(x => x.Estado).IsRequired().HasMaxLength(2);
-            Property(x => x.Pais).IsRequired().HasMaxLength(30);           
+            Property(x => x.Pais).IsRequired().HasMaxLength(30);            
         }
     }
 }

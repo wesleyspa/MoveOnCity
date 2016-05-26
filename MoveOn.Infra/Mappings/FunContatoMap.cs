@@ -3,11 +3,11 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace MoveOn.Infra.Mappings
 {
-    public class ContatoMap : EntityTypeConfiguration<Contato>
+    public class FunContatoMap : EntityTypeConfiguration<FunContato>
     {
-        public ContatoMap()
+        public FunContatoMap()
         {
-            ToTable("Contato");
+            ToTable("FunContato");
             HasKey(x => x.Id);
             
             Property(x => x.DDI).IsRequired().HasMaxLength(3);
@@ -15,8 +15,6 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.Numero).IsRequired().HasMaxLength(9);
             Property(x => x.Tipo).IsRequired().HasMaxLength(11);
             Property(x => x.Info).HasMaxLength(50);
-
-            //HasRequired(x => x.Cliente);
         }
     }
 }

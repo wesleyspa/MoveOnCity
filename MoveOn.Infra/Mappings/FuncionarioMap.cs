@@ -11,10 +11,14 @@ namespace MoveOn.Infra.Mappings
             HasKey(x => x.Id);
             
             Property(x => x.Nome).IsRequired().HasMaxLength(100);
-            Property(x => x.EstadoCivil).IsRequired();
+            Property(x => x.CNH).IsRequired().HasMaxLength(20);
+            Property(x => x.CPF_CNPJ).IsRequired().HasMaxLength(15);
+            Property(x => x.EstadoCivil).IsRequired().HasMaxLength(12);
             Property(x => x.Email).IsRequired();
-                                  
-            //HasMany(x => x.Contato);
+            Property(x => x.Senha).IsRequired().HasMaxLength(20);
+
+            HasRequired(x => x.FunEnderecos);
+            HasMany(x => x.FunContato);
         }
     }
 }

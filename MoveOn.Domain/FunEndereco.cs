@@ -1,20 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace MoveOn_MVC.Models
+﻿namespace MoveOn.Domain
 {
-    [Table("Endereco")]
-    public class Endereco
+    public class FunEndereco
     {
-        public int EnderecoId { get; set; }
+        public int Id { get; set; }
+
         public string Logradouro { get; set; }
         public string _Endereco { get; set; }
         public string Numero { get; set; }
+        public string Bairro { get; set; }
         public string Complemento { get; set; }
-        public string CPF { get; set; }
+        public string CEP { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }
-        public decimal coordenadaX { get; set; }
-        public decimal coordenadaY { get; set; }
+        public decimal CoordenadaX { get; set; }
+        public decimal CoordenadaY { get; set; }
     }
 }

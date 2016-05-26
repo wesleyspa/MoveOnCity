@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MoveOn.Domain.Atendimento>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>MoveON - Clientes</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
+    
+    @*<meta http-equiv="refresh" content="10">*@
+
+</head>
+<body>
+    @Html.Partial("_MenuApplication")
+
+    <div>
+        <table id="tbtimeline" align="center" data-qtdreg="@Model.Count()">
+            <tr>
+                @{ var i = 0; }
+                @foreach (var item in Model.OrderBy(x => x.MomAbertura))
+                {
+
+                    <td>
+                        <div class="bloco-atendimento">
+                            <div class="atendimento-cabecalho">
+                                <span> @item.Servico.Descricao </span>
+                                <div class="atendimento-corpo @item.Status">
+                                    <span> @item.Cliente.Nome </span>
+                                    <br />
+
+                                    @{ string end = @item.Logradouro + " " + @item._Endereco + ", " + @item.Numero + " - " + @item.Bairro + ", " + @item.Cidade + " - " + @item.Estado + ", " + @item.Pais;}
+
+                                    <span> @end </span>                                    
+                                    <br />
+
+                                    <div id="google-mapa-@item.Id" class="google-mapa" data-endereco="@end" data-indice="@item.Id">
+                                        <span>mapa</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>                        
+                    </td>
+
+                    if (++i % 3 == 0)
+                    {
+                        @:</tr><tr>
+                     }
+                }
+            </tr>
+        </table>
+    </div>
+    <!-- Maps API Javascript -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALY-9Js70qi543YtbtKwl8WUO8mgyTsqU&amp;sensor=false"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MapaLocation.js")"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+</body>
+</html>

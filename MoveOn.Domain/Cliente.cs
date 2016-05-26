@@ -13,19 +13,19 @@ namespace MoveOn.Domain
         public string CNH { get; set; }
         public string EstadoCivil { get; set; }
         public string Email { get; set; }
+        public string Senha { get; set; }
+        public string Telefone1 { get; set; }
+        public string Telefone2 { get; set; }
 
-        public int ContratoId { get; set; }
-        public virtual Contrato Contrato { get; set; }
+        //public int ContratoId { get; set; }
+        //public virtual Contrato Contrato { get; set; }
 
-        //public int EnderecoId { get; set; }
-        //public virtual Endereco Endereco { get; set; }
-
-        public int ContatoId { get; set; }
-        public virtual ICollection<Contato> Contato { get; set; }
+        public int EnderecoId { get; set; }
+        public virtual Endereco Endereco { get; set; }
 
         public int VeiculoId { get; set; }
-        public virtual ICollection<Veiculo> Veiculos { get; set; }
-
+        public virtual Veiculo Veiculo { get; set; }
+               
         public override string ToString()
         {
             return this.Nome;

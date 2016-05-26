@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace MoveOn.Domain
+﻿namespace MoveOn.Domain
 {
-    public class Contato
+    public class FunContato
     {
         public int Id { get; set; }
 
@@ -11,8 +9,5 @@ namespace MoveOn.Domain
         public string Numero { get; set; }
         public string Tipo { get; set; }
         public string Info { get; set; }
-
-        //public int ClienteId { get; set; }
-        //public virtual Cliente Cliente { get; set; }
     }
 }

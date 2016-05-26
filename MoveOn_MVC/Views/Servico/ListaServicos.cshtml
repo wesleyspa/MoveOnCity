@@ -1,45 +1,55 @@
-﻿@*@model IEnumerable<MoveOn_MVC.Models.Servico>*@
+﻿@model IEnumerable<MoveOn.Domain.Servico>
+
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 
 <html>
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>ListaServicos</title>
+    <title>MoveON - Clientes</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
 </head>
 <body>
+
     @Html.Partial("_MenuApplication")
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InfoAdicional)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InfoAdicional)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ServicoID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ServicoID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ServicoID })
-            </td>
-        </tr>
-    }
-    
-    </table>
+    <div class="col-md-12">
+
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Informações
+                </th>
+                <th>
+                    Ações
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InfoAdicional)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">@Html.ActionLink("Editar", "Detalhes", new { id = item.Id })</button>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <button type="button" class="btn btn-primary btn-position">@Html.ActionLink("Novo", "Criar")</button>
+    </div>
 </body>
 </html>

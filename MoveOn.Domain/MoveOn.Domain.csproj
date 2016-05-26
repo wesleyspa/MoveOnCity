@@ -47,10 +47,13 @@
     <Compile Include="Contrato.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="FunContato.cs" />
+    <Compile Include="FunEndereco.cs" />
     <Compile Include="IPessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servico.cs" />
     <Compile Include="Status.cs" />
+    <Compile Include="AteVeiculo.cs" />
     <Compile Include="Veiculo.cs" />
   </ItemGroup>
   <ItemGroup>

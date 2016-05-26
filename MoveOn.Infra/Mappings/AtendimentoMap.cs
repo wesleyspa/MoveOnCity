@@ -14,12 +14,12 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.MomInicio).IsOptional();
             Property(x => x.InfoConclusao).IsOptional().HasMaxLength(500);
             Property(x => x.FuncionarioId).IsOptional();
+            Property(x => x.InfoConclusao).IsOptional().HasMaxLength(15);
 
-            HasRequired(x => x.Cliente);
-            HasRequired(x => x.Veiculo);
-            HasRequired(x => x.Localizacao);
+            HasRequired(x => x.Cliente);            
             HasRequired(x => x.Servico);
-            HasMany(x => x.Contatos);
+            
+            HasOptional(x => x.AteVeiculo);            
             HasOptional(x => x.Funcionario);
         }
     }

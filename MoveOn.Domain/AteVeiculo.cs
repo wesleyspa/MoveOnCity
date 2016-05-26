@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace MoveOn_MVC.Models
+﻿namespace MoveOn.Domain
 {
-    [Table("Veiculo")]
-    public class Veiculo
+    public class AteVeiculo
     {
-        public int VeiculoID { get; set; }
+        public int Id { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int AnoFabricacao { get; set; }
@@ -17,9 +10,6 @@ namespace MoveOn_MVC.Models
         public string Cor { get; set; }
         public string Chassi { get; set; }
         public int Passageiros { get; set; }
-
-
-        public Cliente cliente { get; set; }
-
+        public int Portas { get; set; }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model MoveOn.Domain.Funcionario
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Login" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MoveOn City - LogOn</title>
+
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("LogOn", "Home", FormMethod.Post))
+    {
+        //cria a tag do formulário
+        @Html.AntiForgeryToken() // previne o ataque CSRF
+                                @Html.ValidationSummary(true)
+        if (@ViewBag.Message != null)
+        {
+            <div style="border:1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+
+        <div class="container">
+            <div class="modal-body">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h1>Login</h1>
+                    <div class="form-group">
+                        @Html.TextBoxFor(a => a.CPF_CNPJ, null, new { @class = "form-control input-sm" })
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(a => a.Senha, new { @class = "form-control input-sm" })
+                        @Html.ValidationMessageFor(a => a.Senha)
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-sm btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</body>
+</html>
+@*@section Scripts{
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

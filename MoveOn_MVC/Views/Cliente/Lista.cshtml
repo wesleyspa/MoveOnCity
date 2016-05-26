@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MoveOn.Domain.Cliente>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>MoveON - Clientes</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
+</head>
+<body>
+
+    @Html.Partial("_MenuApplication")
+
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Dt. Nascimento
+                </th>
+                <th>
+                    CPF
+                </th>
+                <th>
+                    CNH
+                </th>
+                <th>
+                    Est. Civil
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Ações
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.DataNascimento))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CPF_CNPJ)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CNH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EstadoCivil)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-danger">@Html.ActionLink("Editar", "Detalhes", new { id = item.Id })</button>
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+    <button type="button" class="btn btn-primary btn-position">@Html.ActionLink("Novo", "Criar")</button>
+</body>
+</html>

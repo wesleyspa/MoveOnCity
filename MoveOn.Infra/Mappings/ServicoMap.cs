@@ -10,7 +10,8 @@ namespace MoveOn.Infra.Mappings
             ToTable("Servico");
             HasKey(a => a.Id);
 
-            Property(a => a.Descricao).IsRequired().HasMaxLength(30);            
+            Property(a => a.Descricao).IsRequired().HasMaxLength(30);
+            Property(a => a.InfoAdicional).HasMaxLength(200);            
         }
     }
 }

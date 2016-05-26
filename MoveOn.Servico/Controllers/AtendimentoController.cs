@@ -18,7 +18,14 @@ namespace MoveOn.Servico.Controllers
         [Route("atendimentos")]
         public HttpResponseMessage GetAtendimentos()
         {
-            var result = db.Atendimentos.Include("Localizacao").ToList();
+            var result = db.Atendimentos.ToList();
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        [Route("atendimentosabertos")]
+        public HttpResponseMessage GetAtendimentosAbertos()
+        {
+            var result = db.Atendimentos.Where(x => x.MomConclusao == null).OrderBy(x => x.MomAbertura).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
@@ -95,7 +102,7 @@ namespace MoveOn.Servico.Controllers
             }
 
             try
-            {
+            { 
                 db.Atendimentos.Remove(db.Atendimentos.Find(atendimentoId));
                 db.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, "Atendimento removido");
