@@ -11,5 +11,10 @@
         public string Chassi { get; set; }
         public int Passageiros { get; set; }
         public int Portas { get; set; }
+
+        public override string ToString()
+        {
+            return this.Marca + " " + this.Modelo + " - " + this.Placa;
+        }
     }
 }

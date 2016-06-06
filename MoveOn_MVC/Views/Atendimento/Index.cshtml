@@ -10,20 +10,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>MoveON - Clientes</title>
+    <title>MoveON - Timeline</title>
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
-    
+
     @*<meta http-equiv="refresh" content="10">*@
 
 </head>
 <body>
-    @Html.Partial("_MenuApplication")
-
+    @Html.Action("Header", "Menu")
+    
     <div>
         <table id="tbtimeline" align="center" data-qtdreg="@Model.Count()">
             <tr>
-                @{ var i = 0; }
+                @{ var i = 0;
+                    string descrStat = "";
+                     }
                 @foreach (var item in Model.OrderBy(x => x.MomAbertura))
                 {
 
@@ -32,35 +34,47 @@
                             <div class="atendimento-cabecalho">
                                 <span> @item.Servico.Descricao </span>
                                 <div class="atendimento-corpo @item.Status">
-                                    <span> @item.Cliente.Nome </span>
-                                    <br />
 
-                                    @{ string end = @item.Logradouro + " " + @item._Endereco + ", " + @item.Numero + " - " + @item.Bairro + ", " + @item.Cidade + " - " + @item.Estado + ", " + @item.Pais;}
+                                    <a href="/Atendimento/Detalhes/@item.Id" class="text-timeline">                                    
+                                      <span> @item.Cliente.Nome </span>
+                                      <br />
 
-                                    <span> @end </span>                                    
-                                    <br />
+                                      @{ string end = @item.Logradouro + " " + @item._Endereco + ", " + @item.Numero + " - " + @item.Bairro + ", " + @item.Cidade + " - " + @item.Estado + ", " + @item.Pais;}
+
+                                      <span> @end </span>
+                                    </a>
+                                      <br />
 
                                     <div id="google-mapa-@item.Id" class="google-mapa" data-endereco="@end" data-indice="@item.Id">
                                         <span>mapa</span>
                                     </div>
-
+                                    <div>
+                                        @{ 
+                                            descrStat = "Concluir";
+                                            if (item.MomInicio == null)
+                                            {
+                                                descrStat = "Iniciar";
+                                            }
+                                        }
+                                        <button type="button" style="display: block; width: 100%;" class="btn btn-primary">@Html.ActionLink(@descrStat, "Status", new { id = item.Id })</button>
+                                    </div>
                                 </div>
 
                             </div>
-                        </div>                        
+                        </div>
                     </td>
 
-                    if (++i % 3 == 0)
-                    {
-                        @:</tr><tr>
+                                        if (++i % 3 == 0)
+                                        {
+                                            @:</tr><tr>
                      }
-                }
+                                        }
             </tr>
         </table>
-    </div>
-    <!-- Maps API Javascript -->
+    </div>    
+    
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALY-9Js70qi543YtbtKwl8WUO8mgyTsqU&amp;sensor=false"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/MapaLocation.js")"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MapaLocation.js")"></script>    
 </body>
 </html>

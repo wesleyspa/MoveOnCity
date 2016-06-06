@@ -17,7 +17,7 @@
     <title>Editar Cliente</title>
 </head>
 <body>
-    @Html.Partial("_MenuApplication")
+    @Html.Action("Header", "Menu")
 
     @using (@Html.BeginForm("Detalhe", "Cliente", FormMethod.Post))
     {

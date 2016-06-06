@@ -1,12 +1,11 @@
-﻿@model MoveOn.Domain.Funcionario
-<html>
+﻿<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Login" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>MoveOn City - LogOn</title>
+    <title>MoveOn City - Login</title>
 
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
@@ -29,11 +28,11 @@
                 <div class="col-sm-8 col-sm-offset-2">
                     <h1>Login</h1>
                     <div class="form-group">
-                        @Html.TextBoxFor(a => a.CPF_CNPJ, null, new { @class = "form-control input-sm" })
+                        <input class="form-control input-sm" id="CPF" name="CPF" type="text" value="" placeholder="CPF">
                     </div>
                     <div class="form-group">
-                        @Html.PasswordFor(a => a.Senha, new { @class = "form-control input-sm" })
-                        @Html.ValidationMessageFor(a => a.Senha)
+                        <input class="form-control input-sm" id="Senha" name="Senha" type="password" placeholder="Senha">
+                        <span class="field-validation-valid" data-valmsg-for="Senha" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Login" class="btn btn-sm btn-primary" />

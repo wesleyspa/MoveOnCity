@@ -38,7 +38,7 @@ table {
     box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
 
-.urgente {
+.Urgente {
     background-color: #A02328;
     font-weight: bold;
 }
@@ -82,4 +82,8 @@ a {
     line-height: 1.42857143;
     color: #333;
     white-space: nowrap;
+}
+
+.text-timeline{
+    color : black;
 }

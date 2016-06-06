@@ -1,0 +1,104 @@
+﻿@model IEnumerable<MoveOn.Domain.Atendimento>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>MoveON - Atendimentos</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
+</head>
+<body>
+    @Html.Action("Header", "Menu")
+
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        Serviço
+                    </th>
+                    <th>
+                        Urgência
+                    </th>
+                    <th>
+                        Veículo
+                    </th>
+                    <th>
+                        Endereço
+                    </th>
+                    <th>
+                        Mom. Abertura
+                    </th>
+                    <th>
+                        Mom. Início
+                    </th>
+                    <th>
+                        Mom. Conclusão
+                    </th>
+                    <th>
+                        Ações
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.OrderBy(x => x.MomAbertura).Where(x => x.MomConclusao == null))
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Servico.Descricao)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+
+                        <td>
+                            @ViewData[Convert.ToString(item.VeiculoCliente)]
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Logradouro)
+                            @Html.DisplayFor(modelItem => item._Endereco)
+                            @Html.DisplayFor(modelItem => item.Numero)
+                            @Html.DisplayFor(modelItem => item.Bairro)
+                            @Html.DisplayFor(modelItem => item.Cidade)
+                        </td>
+
+                        <td>
+                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.MomAbertura))
+                        </td>
+
+                        <td>
+                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.MomInicio))
+                        </td>
+
+                        <td>
+                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.MomConclusao))
+                        </td>
+
+                        @{
+                            if (Session["FuncOrCliente"].ToString() == "F")
+                            {
+                                <td>
+                                    <button type="button" class="btn btn-danger">@Html.ActionLink("Editar", "Detalhes", new { id = item.Id })</button>
+                                </td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        }
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

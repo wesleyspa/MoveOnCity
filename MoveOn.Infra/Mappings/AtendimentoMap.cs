@@ -16,7 +16,20 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.FuncionarioId).IsOptional();
             Property(x => x.InfoConclusao).IsOptional().HasMaxLength(15);
 
-            HasRequired(x => x.Cliente);            
+            Property(x => x.Logradouro).IsOptional();
+            Property(x => x._Endereco).IsOptional();
+            Property(x => x.Numero).IsOptional();
+            Property(x => x.Bairro).IsOptional();
+            Property(x => x.Complemento).IsOptional();
+            Property(x => x.CEP).IsOptional();
+            Property(x => x.Cidade).IsOptional();
+            Property(x => x.Estado).IsOptional();
+            Property(x => x.Pais).IsOptional();
+            Property(x => x.CoordenadaX).IsOptional();
+            Property(x => x.CoordenadaY).IsOptional();
+
+            Property(x => x.VeiculoCliente).IsRequired();
+            HasRequired(x => x.Cliente);                        
             HasRequired(x => x.Servico);
             
             HasOptional(x => x.AteVeiculo);            

@@ -13,6 +13,11 @@ namespace MoveOn_MVC.Controllers
         // GET: Servico
         public ActionResult ListaServicos()
         {
+            if (Session["logadoID"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             using (MoveOnDataContext db = new MoveOnDataContext())
             {
                 List<Servico> servicos = new List<Servico>();
@@ -24,12 +29,22 @@ namespace MoveOn_MVC.Controllers
 
         public ActionResult Criar()
         {
+            if (Session["logadoID"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             return View();
         }
 
         [HttpPost]
         public ActionResult Criar(Servico s)
         {
+            if (Session["logadoID"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             MoveOnDataContext dc = new MoveOnDataContext();
 
             if (ModelState.IsValid)
@@ -53,6 +68,11 @@ namespace MoveOn_MVC.Controllers
         [HttpPost]
         public ActionResult Detalhe(Servico s)
         {
+            if (Session["logadoID"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             MoveOnDataContext dc = new MoveOnDataContext();
 
             var original = dc.Servicos.Where(x => x.Id == s.Id).FirstOrDefault();
@@ -68,6 +88,11 @@ namespace MoveOn_MVC.Controllers
 
         public ActionResult Detalhes(int id)
         {
+            if (Session["logadoID"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             MoveOnDataContext dc = new MoveOnDataContext();
 
             var result = dc.Servicos.Where(x => x.Id == id).FirstOrDefault();

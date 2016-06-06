@@ -11,6 +11,11 @@ namespace MoveOn_MVC.Controllers
         // GET: Cliente
         public ActionResult Lista()
         {
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             using (MoveOnDataContext db = new MoveOnDataContext())
             {
                 List<Cliente> clientes = new List<Cliente>();
@@ -21,12 +26,22 @@ namespace MoveOn_MVC.Controllers
 
         public ActionResult Criar()
         {
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             return View();
         }
 
         [HttpPost]
         public ActionResult Criar(Cliente c)
         {
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             MoveOnDataContext dc = new MoveOnDataContext();
 
             if (ModelState.IsValid)
@@ -43,6 +58,11 @@ namespace MoveOn_MVC.Controllers
         [HttpPost]
         public ActionResult Detalhe(Cliente c)
         {
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             MoveOnDataContext dc = new MoveOnDataContext();
 
             var original = dc.Clientes.Where(x => x.Id == c.Id).FirstOrDefault();
@@ -62,6 +82,11 @@ namespace MoveOn_MVC.Controllers
 
         public ActionResult Detalhes(int id)
         {
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             MoveOnDataContext dc = new MoveOnDataContext();
 
             var result = dc.Clientes.Include("Veiculo").Include("Endereco").Where(x => x.Id == id).FirstOrDefault();

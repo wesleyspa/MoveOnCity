@@ -1,9 +1,5 @@
-﻿using MoveOn.Domain;
-using MoveOn.Infra.DataContext;
-using System;
-using System.Collections.Generic;
+﻿using MoveOn.Infra.DataContext;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MoveOn_MVC.Controllers
@@ -17,37 +13,63 @@ namespace MoveOn_MVC.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LogOn(Funcionario f)
+        public ActionResult LogOn(FormCollection f)
         {
+
+            string cpf = f["CPF"];
+            string senha = f["Senha"];
+
             if (ModelState.IsValid)
             {
                 MoveOnDataContext dc = new MoveOnDataContext();
-                var result = dc.Funcionarios.Where(x => x.CPF_CNPJ == f.CPF_CNPJ && x.Senha == f.Senha).FirstOrDefault();
+                var result = dc.Funcionarios.Where(x => x.CPF_CNPJ == cpf && x.Senha == senha).FirstOrDefault();
 
                 if (result != null)
                 {
-                    Session["funcionarioLogadoID"] = result.Id;                    
-                    Session["funcionarioLogadoNome"] = result.Nome.ToString(); ;
+                    Session["logadoId"] = result.Id;                    
+                    Session["logadoNome"] = result.Nome.ToString(); ;
+                    Session["FuncOrCliente"] = "F";
                     return RedirectToAction("Index", "Atendimento");
                 }
+                else
+                {
+                    var result2 = dc.Clientes.Where(x => x.CPF_CNPJ == cpf && x.Senha == senha).FirstOrDefault();
+
+                    if (result2 != null)
+                    {
+                        Session["logadoId"] = result2.Id;
+                        Session["logadoNome"] = result2.Nome.ToString();
+                        Session["FuncOrCliente"] = "C";
+                        return RedirectToAction("NovoAtendimento", "Atendimento");
+                    }
+                }
             }
-            return View(f);
+            return View();
         }
 
 
         // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
 
-        // GET: Home
-        public ActionResult NovoAtendimento()
-        {
-            return View();
+            return RedirectToAction("Index", "Atendimento");
         }
 
         public ActionResult MapaAtendimentos()
+        {
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
+            return RedirectToAction("MapaAtendimentos");
+        }
+
+        public ActionResult Mapa()
         {
             return View();
         }

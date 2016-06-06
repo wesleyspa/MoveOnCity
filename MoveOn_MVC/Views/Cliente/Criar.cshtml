@@ -17,7 +17,7 @@
     <title>Novo Cliente</title>
 </head>
 <body>
-    @Html.Partial("_MenuApplication")
+    @Html.Action("Header", "Menu")
 
     @using (Html.BeginForm())
     {
@@ -42,6 +42,11 @@
                     <label for="estadocivil">Estado Civil</label>
                     @{
                         List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Solteiro(a)",
+                            Value = "Solteiro"
+                        });
                         listItems.Add(new SelectListItem
                         {
                             Text = "Casado(a)",

@@ -14,7 +14,7 @@
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/estilo.css")" rel="stylesheet" />
 
-    <title>Novo Atendimento</title>
+    <title>Atendimento</title>
 </head>
 <body>
     @Html.Action("Header", "Menu")
@@ -44,16 +44,23 @@
                     }
                     @Html.DropDownListFor(model => model.ServicoId, listItems, "", new { @class = "form-control" })
 
+                    @Html.HiddenFor(model => model.VeiculoCliente)
+
                     <label for="status">Urgência</label>
                     @{
-                        List<SelectListItem> listStatus = new List<SelectListItem>();
+                        List<SelectListItem> listStatus = new List<SelectListItem>();                        
+                        listStatus.Add(new SelectListItem
+                        {
+                            Text = "Normal",
+                            Value = "Normal"
+                        });
                         listStatus.Add(new SelectListItem
                         {
                             Text = "Urgente",
                             Value = "Urgente"
                         });
                     }
-                    @Html.DropDownListFor(model => model.Status, listStatus, "Normal", new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.Status, listStatus, "", new { @class = "form-control" })
 
 
                 </fieldset>
@@ -76,9 +83,6 @@
                     <label for="complemento">Complemento</label>
                     @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control", @placeholder = "Complemento" } })
 
-                    @*<label for="cep">CEP</label>
-            @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "CEP" } })*@
-
                     <label for="cidade">Cidade</label>
                     @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control", @placeholder = "Cidade" } })
 
@@ -90,24 +94,16 @@
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <legend>Veículo</legend>
-                   
-                    <label for="veiculoid">Veículo</label>
-                    @{
-                        List<SelectListItem> listVeic = new List<SelectListItem>();
-                        foreach (var veiculo in ViewBag.veiculos)
-                        {
-                            listVeic.Add(new SelectListItem
-                            {
-                                Text = veiculo.Marca + " " + veiculo.Modelo + " - " + veiculo.Placa,
-                                Value = Convert.ToString(veiculo.Id)
-                            });
-                        }
-                    }
-                    @Html.DropDownListFor(model => model.VeiculoCliente, listVeic, "", new { @class = "form-control" })
+                    <legend>Momento</legend>
+
+                    <label for="momInicio">Mom. Inicio</label>
+                    @Html.EditorFor(model => model.MomInicio, new { htmlAttributes = new { @class = "form-control"} })
+
+                    <label for="momConclusao">Mom. Conclusão</label>
+                    @Html.EditorFor(model => model.MomConclusao, new { htmlAttributes = new { @class = "form-control"} })
                 </fieldset>
 
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
         </div>
                         }
