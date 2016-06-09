@@ -31,13 +31,13 @@
                     @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nome do cliente" } })
 
                     <label for="dtnascimento">Data de Nascimento</label>
-                    @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control", @type = "date", required = "required" } })
 
                     <label for="cnpj_cpf">CPF</label>
-                    @Html.EditorFor(model => model.CPF_CNPJ, new { htmlAttributes = new { @class = "form-control", @placeholder = "CPF do cliente" } })
+                    @Html.EditorFor(model => model.CPF_CNPJ, new { htmlAttributes = new { @class = "form-control", @placeholder = "CPF do cliente", required = "required" } })
 
                     <label for="cnh">CNH</label>
-                    @Html.EditorFor(model => model.CNH, new { htmlAttributes = new { @class = "form-control", @placeholder = "CNH do cliente" } })
+                    @Html.EditorFor(model => model.CNH, new { htmlAttributes = new { @class = "form-control", @placeholder = "CNH do cliente", required = "required" } })
 
                     <label for="estadocivil">Estado Civil</label>
                     @{
@@ -74,19 +74,19 @@
                         });
 
                     }
-                    @Html.DropDownListFor(model => model.EstadoCivil, listItems, "Solteiro(a)", new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.EstadoCivil, listItems, "", new { @class = "form-control", required = "required" })
 
                     <label for="email">Email</label>                    
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email do cliente", @type = "email" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email do cliente", @type = "email", required = "required" } })
 
                     <label for="telefone1">Telefone 1</label>
-                    @Html.EditorFor(model => model.Telefone1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Telefone 1", @type = "tel" } })
+                    @Html.EditorFor(model => model.Telefone1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Telefone 1", @type = "tel", required = "required" } })
 
                     <label for="telefone2">Telefone 2</label>
-                    @Html.EditorFor(model => model.Telefone2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Telefone 2", @type = "tel" } })
+                    @Html.EditorFor(model => model.Telefone2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Telefone 2", @type = "tel", required = "required" } })
 
                     <label for="senha">Senha</label>                    
-                    @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control", @placeholder = "Senha do cliente", @type = "password" } })
+                    @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control", @placeholder = "Senha do cliente", @type = "password", required = "required" } })
                     <small class="text-muted">Nunca forneça essa senha a outra pessoa.</small>                                     
                 </fieldset>
 
@@ -94,31 +94,31 @@
                     <legend>Endereço</legend>
 
                     <label for="logradouro">Logradouro</label>
-                    @Html.EditorFor(model => model.Endereco.Logradouro, new { htmlAttributes = new { @class = "form-control", @placeholder = "Logradouro" } })
+                    @Html.EditorFor(model => model.Endereco.Logradouro, new { htmlAttributes = new { @class = "form-control", @placeholder = "Logradouro", required = "required" } })
 
                     <label for="_endereco">Endereço</label>
-                    @Html.EditorFor(model => model.Endereco._Endereco, new { htmlAttributes = new { @class = "form-control", @placeholder = "Endereço" } })
+                    @Html.EditorFor(model => model.Endereco._Endereco, new { htmlAttributes = new { @class = "form-control", @placeholder = "Endereço", required = "required" } })
 
                     <label for="numero">Numero</label>
-                    @Html.EditorFor(model => model.Endereco.Numero, new { htmlAttributes = new { @class = "form-control", @placeholder = "Numero" } })
+                    @Html.EditorFor(model => model.Endereco.Numero, new { htmlAttributes = new { @class = "form-control", @placeholder = "Numero", required = "required" } })
 
                     <label for="bairro">Bairro</label>
-                    @Html.EditorFor(model => model.Endereco.Bairro, new { htmlAttributes = new { @class = "form-control", @placeholder = "Bairro" } })
+                    @Html.EditorFor(model => model.Endereco.Bairro, new { htmlAttributes = new { @class = "form-control", @placeholder = "Bairro", required = "required" } })
 
                     <label for="complemento">Complemento</label>
                     @Html.EditorFor(model => model.Endereco.Complemento, new { htmlAttributes = new { @class = "form-control", @placeholder = "Complemento" } })
 
                     <label for="cep">CEP</label>
-                    @Html.EditorFor(model => model.Endereco.CEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "CEP" } })
+                    @Html.EditorFor(model => model.Endereco.CEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "CEP", required = "required" } })
 
                     <label for="cidade">Cidade</label>
-                    @Html.EditorFor(model => model.Endereco.Cidade, new { htmlAttributes = new { @class = "form-control", @placeholder = "Cidade" } })
+                    @Html.EditorFor(model => model.Endereco.Cidade, new { htmlAttributes = new { @class = "form-control", @placeholder = "Cidade", required = "required" } })
 
                     <label for="estado">Estado</label>
-                    @Html.EditorFor(model => model.Endereco.Estado, new { htmlAttributes = new { @class = "form-control", @placeholder = "Estado" } })
+                    @Html.EditorFor(model => model.Endereco.Estado, new { htmlAttributes = new { @class = "form-control", @placeholder = "Estado", required = "required" } })
 
                     <label for="pais">País</label>
-                    @Html.EditorFor(model => model.Endereco.Pais, new { htmlAttributes = new { @class = "form-control", @placeholder = "País" } })
+                    @Html.EditorFor(model => model.Endereco.Pais, new { htmlAttributes = new { @class = "form-control", @placeholder = "País", required = "required" } })
                 </fieldset>
 
                 <fieldset class="form-group">
@@ -131,7 +131,7 @@
                     @Html.EditorFor(model => model.Veiculo.Modelo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Modelo" } })
 
                     <label for="anofabricacao">Ano de Fabricação</label>
-                    @Html.EditorFor(model => model.Veiculo.AnoFabricacao, new { AllowHtmlAttribute = new { @class = "form-control", @placeholder = "Ano de Fabricação", @type = "number" } })                    
+                    @Html.EditorFor(model => model.Veiculo.AnoFabricacao, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ano de Fabricação", @type = "number" } })                    
                                                        
                     <label for="marca">Placa</label>
                     @Html.EditorFor(model => model.Veiculo.Placa, new { htmlAttributes = new { @class = "form-control", @placeholder = "Placa" } })

@@ -1,35 +1,32 @@
 ﻿using MoveOn.Domain;
 using MoveOn.Infra.DataContext;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MoveOn_MVC.Controllers
 {
-    public class ServicoController : Controller
+    public class FuncionarioController : Controller
     {
-        // GET: Servico
-        public ActionResult ListaServicos()
+        // GET: Cliente
+        public ActionResult Lista()
         {
-            if (Session["logadoID"] == null)
+            if (Session["logadoId"] == null)
             {
                 return RedirectToAction("LogOn", "Home");
             }
 
             using (MoveOnDataContext db = new MoveOnDataContext())
             {
-                List<Servico> servicos = new List<Servico>();
-                servicos = db.Servicos.ToList();
-                return View(servicos);
+                List<Funcionario> funcionarios = new List<Funcionario>();
+                funcionarios = db.Funcionarios.ToList();
+                return View(funcionarios);
             };
-
         }
 
         public ActionResult Criar()
         {
-            if (Session["logadoID"] == null)
+            if (Session["logadoId"] == null)
             {
                 return RedirectToAction("LogOn", "Home");
             }
@@ -38,9 +35,9 @@ namespace MoveOn_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Criar(Servico s)
+        public ActionResult Criar(Funcionario c)
         {
-            if (Session["logadoID"] == null)
+            if (Session["logadoId"] == null)
             {
                 return RedirectToAction("LogOn", "Home");
             }
@@ -49,53 +46,49 @@ namespace MoveOn_MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                dc.Servicos.Add(s);
-                try
-                {
-                    dc.SaveChanges();
-                    return RedirectToAction("ListaServicos");
-                }
-                catch
-                {
-                }
-
+                dc.Funcionarios.Add(c);
+                dc.SaveChanges();
+                return RedirectToAction("Lista");
             }
 
-            return View(s);
+            return View(c);
         }
 
 
         [HttpPost]
-        public ActionResult Detalhe(Servico s)
+        public ActionResult Detalhe(Funcionario c)
         {
-            if (Session["logadoID"] == null)
+            if (Session["logadoId"] == null)
             {
                 return RedirectToAction("LogOn", "Home");
             }
 
             MoveOnDataContext dc = new MoveOnDataContext();
 
-            var original = dc.Servicos.Where(x => x.Id == s.Id).FirstOrDefault();
+            var original = dc.Funcionarios.Find(c.Id);
 
             if (original != null)
             {
-                dc.Entry(original).CurrentValues.SetValues(s);
+                c.FunEnderecoId = original.FunEnderecoId;
+                
+                dc.Entry(original).CurrentValues.SetValues(c);
                 dc.SaveChanges();
+                return RedirectToAction("Lista");
             }
 
-            return RedirectToAction("ListaServicos");
+            return View(c);
         }
 
         public ActionResult Detalhes(int id)
         {
-            if (Session["logadoID"] == null)
+            if (Session["logadoId"] == null)
             {
                 return RedirectToAction("LogOn", "Home");
             }
 
             MoveOnDataContext dc = new MoveOnDataContext();
 
-            var result = dc.Servicos.Where(x => x.Id == id).FirstOrDefault();
+            var result = dc.Funcionarios.Include("FunEndereco").Where(x => x.Id == id).FirstOrDefault();
 
             return View(result);
         }
@@ -109,11 +102,11 @@ namespace MoveOn_MVC.Controllers
 
             MoveOnDataContext dc = new MoveOnDataContext();
 
-            var result = dc.Servicos.Find(id);
-            dc.Servicos.Remove(result);
+            var result = dc.Funcionarios.Find(id);
+            dc.Funcionarios.Remove(result);
             dc.SaveChanges();
 
-            return RedirectToAction("ListaServicos");
+            return RedirectToAction("Lista");
         }
 
     }

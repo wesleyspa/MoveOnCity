@@ -52,7 +52,6 @@
     <Compile Include="DataContext\MoveOnDataContext.cs" />
     <Compile Include="Mappings\AteVeiculoMap.cs" />
     <Compile Include="Mappings\FunEnderecoMap.cs" />
-    <Compile Include="Mappings\FunContatoMap.cs" />
     <Compile Include="Mappings\VeiculoMap.cs" />
     <Compile Include="Mappings\FuncionarioMap.cs" />
     <Compile Include="Mappings\ClienteMap.cs" />

@@ -1,5 +1,6 @@
 ﻿using MoveOn.Domain;
 using MoveOn.Infra.DataContext;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -70,9 +71,8 @@ namespace MoveOn_MVC.Controllers
             if (original != null)
             {
                 c.EnderecoId = original.EnderecoId;
-                c.VeiculoId = original.VeiculoId;
-
-
+                c.VeiculoId = original.VeiculoId;                
+               
                 dc.Entry(original).CurrentValues.SetValues(c);
                 dc.SaveChanges();
             }
@@ -94,6 +94,21 @@ namespace MoveOn_MVC.Controllers
             return View(result);
         }
 
+        public ActionResult Deletar(int id)
+        {
+            if (Session["logadoId"] == null)
+            {
+                return RedirectToAction("LogOn", "Home");
+            }           
+
+            MoveOnDataContext dc = new MoveOnDataContext();
+
+            var result = dc.Clientes.Find(id);
+            dc.Clientes.Remove(result);
+            dc.SaveChanges();
+
+            return RedirectToAction("Lista");
+        }
 
     }
 }

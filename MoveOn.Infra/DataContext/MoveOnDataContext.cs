@@ -33,8 +33,7 @@ namespace MoveOn.Infra.DataContext
             modelBuilder.Configurations.Add(new AtendimentoMap());
             modelBuilder.Configurations.Add(new ServicoMap());
             modelBuilder.Configurations.Add(new ClienteMap());
-            modelBuilder.Configurations.Add(new ContatoMap());
-            modelBuilder.Configurations.Add(new FunContatoMap());
+            modelBuilder.Configurations.Add(new ContatoMap());            
             modelBuilder.Configurations.Add(new ContratoMap());
             modelBuilder.Configurations.Add(new EnderecoMap());
             modelBuilder.Configurations.Add(new FunEnderecoMap());
@@ -47,7 +46,7 @@ namespace MoveOn.Infra.DataContext
         }
     }
 
-    public class MoveOnDataContextInitializer : DropCreateDatabaseIfModelChanges<MoveOnDataContext>
+    public class MoveOnDataContextInitializer : DropCreateDatabaseAlways<MoveOnDataContext>
     {
         protected override void Seed(MoveOnDataContext context)
         {
@@ -120,20 +119,20 @@ namespace MoveOn.Infra.DataContext
             context.SaveChanges();
 
             //-- Novos Clientes
-            context.Clientes.Add(new Cliente {Id = 1, Nome = "José Bonifacio da Silva", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "JoseBone@gmail.com", EnderecoId = 1, Telefone1 = "32123432" ,Senha = "123", VeiculoId = 1});
-            context.Clientes.Add(new Cliente {Id = 2, Nome = "João Cleber Ferreira", DataNascimento = DateTime.Now, CPF_CNPJ = "22222222222", CNH = "123456789", EstadoCivil = "Solteiro", Email = "Joao.C@gmail.com", EnderecoId = 2, Telefone1 = "32123432", Senha = "123", VeiculoId = 2 });
-            context.Clientes.Add(new Cliente {Id = 3, Nome = "Maria Joaquina", DataNascimento = DateTime.Now, CPF_CNPJ = "33333333333", CNH = "123456789", EstadoCivil = "Viúva", Email = "MariaB@gmail.com", EnderecoId = 3, Telefone1 = "32123432", Senha = "123", VeiculoId = 3 });
-            context.Clientes.Add(new Cliente {Id = 4, Nome = "Berenicie Joana", DataNascimento = DateTime.Now, CPF_CNPJ = "44444444444", CNH = "123456789", EstadoCivil = "Solteiro", Email = "JoaquinaT@gmail.com", EnderecoId = 4, Telefone1 = "32123432", Senha = "123", VeiculoId = 4 });
-            context.Clientes.Add(new Cliente {Id = 5, Nome = "Claudete Vazques", DataNascimento = DateTime.Now, CPF_CNPJ = "55555555555", CNH = "123456789", EstadoCivil = "Divorciada", Email = "Claudete@gmail.com", EnderecoId = 5, Telefone1 = "32123432", Senha = "123", VeiculoId = 5 });
-            context.Clientes.Add(new Cliente {Id = 6, Nome = "Wesley Alves", DataNascimento = DateTime.Now, CPF_CNPJ = "39987783813", CNH = "123456789", EstadoCivil = "Divorciada", Email = "Claudete@gmail.com", EnderecoId = 5, Telefone1 = "32123432", Senha = "123", VeiculoId = 5 });
+            context.Clientes.Add(new Cliente {Id = 1, Nome = "José Bonifacio da Silva", DataNascimento = "22/05/1993", CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "JoseBone@gmail.com", EnderecoId = 1, Telefone1 = "32123432" ,Senha = "123", VeiculoId = 1});
+            context.Clientes.Add(new Cliente {Id = 2, Nome = "João Cleber Ferreira", DataNascimento = "22/02/1993", CPF_CNPJ = "22222222222", CNH = "123456789", EstadoCivil = "Solteiro", Email = "Joao.C@gmail.com", EnderecoId = 2, Telefone1 = "32123432", Senha = "123", VeiculoId = 2 });
+            context.Clientes.Add(new Cliente {Id = 3, Nome = "Maria Joaquina", DataNascimento = "22/09/1993", CPF_CNPJ = "33333333333", CNH = "123456789", EstadoCivil = "Viúva", Email = "MariaB@gmail.com", EnderecoId = 3, Telefone1 = "32123432", Senha = "123", VeiculoId = 3 });
+            context.Clientes.Add(new Cliente {Id = 4, Nome = "Berenicie Joana", DataNascimento = "22/05/1973", CPF_CNPJ = "44444444444", CNH = "123456789", EstadoCivil = "Solteiro", Email = "JoaquinaT@gmail.com", EnderecoId = 4, Telefone1 = "32123432", Senha = "123", VeiculoId = 4 });
+            context.Clientes.Add(new Cliente {Id = 5, Nome = "Claudete Vazques", DataNascimento = "13/05/1982", CPF_CNPJ = "55555555555", CNH = "123456789", EstadoCivil = "Divorciada", Email = "Claudete@gmail.com", EnderecoId = 5, Telefone1 = "32123432", Senha = "123", VeiculoId = 5 });
+            context.Clientes.Add(new Cliente {Id = 6, Nome = "Wesley Alves", DataNascimento = "10/02/1995", CPF_CNPJ = "39987783813", CNH = "123456789", EstadoCivil = "Divorciada", Email = "Claudete@gmail.com", EnderecoId = 5, Telefone1 = "32123432", Senha = "123", VeiculoId = 5 });
             context.SaveChanges();
 
             //-- Novos Funcionarios
-            context.Funcionarios.Add(new Funcionario {Id = 1, Nome = "Mauricio Augusto Souza", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MauricioA@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 1, Senha = "123" });
-            context.Funcionarios.Add(new Funcionario {Id = 2, Nome = "Valéria Silva", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteira", Email = "ValeriaS@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 2, Senha = "123" });
-            context.Funcionarios.Add(new Funcionario {Id = 3, Nome = "Diego Alves", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "DiegoA@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 3, Senha = "123" });
-            context.Funcionarios.Add(new Funcionario {Id = 4, Nome = "Rafael de Castro", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteiro", Email = "RafaelC@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 4, Senha = "123" });
-            context.Funcionarios.Add(new Funcionario {Id = 5, Nome = "Murilo Maciel", DataNascimento = DateTime.Now, CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MuriloM@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 5, Senha = "123" });
+            context.Funcionarios.Add(new Funcionario {Id = 1, Nome = "Mauricio Augusto Souza", DataNascimento = "20/12/1993", CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MauricioA@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 1, Senha = "123", Telefone1 = "11943543321" });
+            context.Funcionarios.Add(new Funcionario {Id = 2, Nome = "Valéria Silva", DataNascimento = "09/01/1992", CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteira", Email = "ValeriaS@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 2, Senha = "123", Telefone1 = "11943543321" });
+            context.Funcionarios.Add(new Funcionario {Id = 3, Nome = "Diego Alves", DataNascimento = "02/03/1955", CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "DiegoA@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 3, Senha = "123", Telefone1 = "11943543321" });
+            context.Funcionarios.Add(new Funcionario {Id = 4, Nome = "Rafael de Castro", DataNascimento = "12/05/1943", CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Solteiro", Email = "RafaelC@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 4, Senha = "123", Telefone1 = "11943543321" });
+            context.Funcionarios.Add(new Funcionario {Id = 5, Nome = "Murilo Maciel", DataNascimento = "10/05/1990", CPF_CNPJ = "11111111111", CNH = "123456789", EstadoCivil = "Casado", Email = "MuriloM@gmail.com", DataContrato = DateTime.Now, FunEnderecoId = 5, Senha = "123", Telefone1 = "11943543321" });
             context.SaveChanges();
 
             //-- Novos Status

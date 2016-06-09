@@ -28,7 +28,7 @@
                     <legend>Serviço</legend>
 
                     <label for="descricao">Descrição</label>
-                    @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control", required = "required" } })
 
                     <label for="infoadicional">Info. Adicional</label>
                     @Html.EditorFor(model => model.InfoAdicional, new { htmlAttributes = new { @class = "form-control" } })

@@ -16,9 +16,11 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.EstadoCivil).IsRequired().HasMaxLength(12);
             Property(x => x.Email).IsRequired();
             Property(x => x.Senha).IsRequired().HasMaxLength(20);
+            Property(x => x.DataNascimento).IsRequired().HasMaxLength(17);
+            Property(x => x.Telefone1).IsRequired().HasMaxLength(20);
+            Property(x => x.Telefone2).HasMaxLength(20);
 
-            HasRequired(x => x.FunEnderecos);
-            HasMany(x => x.FunContato);
+            HasRequired(x => x.FunEndereco);            
         }
     }
 }

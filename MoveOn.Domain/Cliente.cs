@@ -8,7 +8,7 @@ namespace MoveOn.Domain
         public int Id { get; set; }
 
         public string Nome { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public string DataNascimento { get; set; }
         public string CPF_CNPJ { get; set; }
         public string CNH { get; set; }
         public string EstadoCivil { get; set; }
@@ -16,9 +16,6 @@ namespace MoveOn.Domain
         public string Senha { get; set; }
         public string Telefone1 { get; set; }
         public string Telefone2 { get; set; }
-
-        //public int ContratoId { get; set; }
-        //public virtual Contrato Contrato { get; set; }
 
         public int EnderecoId { get; set; }
         public virtual Endereco Endereco { get; set; }
