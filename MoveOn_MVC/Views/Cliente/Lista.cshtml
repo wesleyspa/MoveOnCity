@@ -24,9 +24,6 @@
                     Nome
                 </th>
                 <th>
-                    Dt. Nascimento
-                </th>
-                <th>
                     CPF
                 </th>
                 <th>
@@ -48,9 +45,6 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.DataNascimento))
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CPF_CNPJ)
@@ -75,5 +69,12 @@
         </table>
     </div>
     <button type="button" class="btn btn-primary btn-position">@Html.ActionLink("Novo", "Criar")</button>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+    <script>
+        jQuery(function ($) {
+            $("#campoData").mask("99/99/9999");
+        });
+    </script>
 </body>
 </html>

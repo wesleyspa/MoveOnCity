@@ -20,7 +20,7 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.Telefone1).IsRequired().HasMaxLength(20);
             Property(x => x.Telefone2).HasMaxLength(20);
 
-            HasRequired(x => x.FunEndereco);            
+            HasRequired(x => x.FunEndereco);
         }
     }
 }

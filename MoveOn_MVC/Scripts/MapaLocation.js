@@ -1,7 +1,6 @@
 ﻿function initialize() {
     var latitude = 0, longitude = 0;    
     var geocoder = new google.maps.Geocoder();
-    //var address = "Estrada São Francisco, 2701 - Vila Sonia do Taboao, Taboão da Serra - SP, Brasil"                     
     var uri = "http://localhost:50154/api/av1/private/atendimentosabertos";
     
         $.getJSON(uri, function (locais) {

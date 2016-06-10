@@ -46,7 +46,7 @@ namespace MoveOn_MVC.Controllers
             MoveOnDataContext dc = new MoveOnDataContext();
 
             if (ModelState.IsValid)
-            {
+            {                
                 dc.Clientes.Add(c);
                 dc.SaveChanges();
                 return RedirectToAction("Lista");

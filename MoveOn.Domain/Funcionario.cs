@@ -13,7 +13,6 @@ namespace MoveOn.Domain
         public string CNH { get; set; }
         public string EstadoCivil { get; set; }
         public string Email { get; set; }
-        public DateTime DataContrato { get; set; }
         public string Senha { get; set; }
         public string Telefone1 { get; set; }
         public string Telefone2 { get; set; }

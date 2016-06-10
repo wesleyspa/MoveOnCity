@@ -24,9 +24,6 @@
                     Nome
                 </th>
                 <th>
-                    Dt. Nascimento
-                </th>
-                <th>
                     CPF
                 </th>
                 <th>
@@ -48,9 +45,6 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.DataNascimento))
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CPF_CNPJ)

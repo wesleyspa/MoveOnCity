@@ -13,7 +13,6 @@ namespace MoveOn.Infra.Mappings
             Property(x => x.MomConclusao).IsOptional();
             Property(x => x.MomInicio).IsOptional();
             Property(x => x.InfoConclusao).IsOptional().HasMaxLength(500);
-            Property(x => x.FuncionarioId).IsOptional();
             Property(x => x.InfoConclusao).IsOptional().HasMaxLength(15);
 
             Property(x => x.Logradouro).IsOptional();
@@ -33,7 +32,6 @@ namespace MoveOn.Infra.Mappings
             HasRequired(x => x.Servico);
             
             HasOptional(x => x.AteVeiculo);            
-            HasOptional(x => x.Funcionario);
         }
     }
 }

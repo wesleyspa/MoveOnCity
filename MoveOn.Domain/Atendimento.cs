@@ -41,8 +41,5 @@ namespace MoveOn.Domain
 
         public int? AteVeiculoId { get; set; }
         public virtual AteVeiculo AteVeiculo { get; set; }
-
-        public int? FuncionarioId { get; set; }
-        public virtual Funcionario Funcionario { get; set; }
     }
 }

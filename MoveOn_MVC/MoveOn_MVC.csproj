@@ -132,7 +132,6 @@
     <Content Include="Views\Shared\_MenuFuncionario.cshtml" />
     <Content Include="Views\Atendimento\Lista.cshtml" />
     <Content Include="Views\Home\NovoAtendimento.cshtml" />
-    <Content Include="Scripts\AtendimentosAbertos.json" />
     <Content Include="Views\Atendimento\NovoAtendimento.cshtml" />
     <Content Include="Views\Servico\ListaServicos.cshtml" />
     <Content Include="Views\Atendimento\Index.cshtml" />
